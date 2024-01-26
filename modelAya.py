@@ -74,7 +74,7 @@ class NMF_Encoder(nn.Module):
 
 class Autoencoder(nn.Module):
 
-    def __init__(self, k, num_points):
+    def __init__(self, k, num_points, device='cuda'):
         """
         Arguments:
             k: an integer, dimension of the representation vector.
@@ -100,7 +100,8 @@ class Autoencoder(nn.Module):
 
         c_dim =k
         hidden_dim = 128
-        self.homeomorphism_encoder = ResnetPointnet(dim=3, c_dim=c_dim, hidden_dim=hidden_dim).to('cuda')
+        # self.homeomorphism_encoder = ResnetPointnet(dim=3, c_dim=c_dim, hidden_dim=hidden_dim).to('cuda')
+        self.homeomorphism_encoder = ResnetPointnet(dim=3, c_dim=c_dim, hidden_dim=hidden_dim).to(device)
 
         #self.encoder_nmf= NMF_Encoder(c_dim)
 
@@ -130,7 +131,7 @@ class Autoencoder(nn.Module):
         normalization = False
 
         self.deform=NVP_v2_5_frame(n_layers=n_layers, feature_dims=feature_dims, hidden_size=hidden_size, proj_dims=proj_dims,\
-        code_proj_hidden_size=code_proj_hidden_size, proj_type=proj_type, block_normalize=block_normalize, normalization=normalization).to('cuda')
+        code_proj_hidden_size=code_proj_hidden_size, proj_type=proj_type, block_normalize=block_normalize, normalization=normalization).to(device)
 
 
             
