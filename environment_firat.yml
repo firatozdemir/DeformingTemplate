@@ -1,0 +1,39 @@
+name: cadex
+channels:
+  - pytorch
+  - nvidia
+  - pytorch3d
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pytorch-cuda=12.1
+  - pytorch
+  - torchvision
+  - torchaudio
+  - scipy
+  - matplotlib
+  - pytorch3d
+  - scikit-learn
+  - scikit-image
+  - pandas
+  - seaborn
+  - plotly
+  - jupyter
+  - notebook
+  - yaml
+  - zlib
+  - zstd
+  - imageio
+  - imageio-ffmpeg
+  - dash
+  - pywavelets
+  - pyyaml
+  - trimesh
+  - h5py
+  - pip
+  - pip:
+    - fvcore
+    - iopath
+    - tensorboard
+    - open3d
+    - opencv-python
